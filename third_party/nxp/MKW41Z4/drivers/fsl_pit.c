@@ -69,14 +69,14 @@ static uint32_t PIT_GetInstance(PIT_Type *base)
         }
     }
 
-    assert(instance < ARRAY_SIZE(s_pitBases));
+    //assert(instance < ARRAY_SIZE(s_pitBases));
 
     return instance;
 }
 
 void PIT_Init(PIT_Type *base, const pit_config_t *config)
 {
-    assert(config);
+    //assert(config);
 
 #if !(defined(FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL) && FSL_SDK_DISABLE_DRIVER_CLOCK_CONTROL)
     /* Ungate the PIT clock*/

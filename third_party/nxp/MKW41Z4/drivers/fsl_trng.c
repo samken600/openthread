@@ -1225,7 +1225,7 @@ static uint32_t trng_GetInstance(TRNG_Type *base)
         }
     }
 
-    assert(instance < ARRAY_SIZE(s_trngBases));
+    //assert(instance < ARRAY_SIZE(s_trngBases));
 
     return instance;
 }
