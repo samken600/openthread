@@ -2696,6 +2696,8 @@ void Interpreter::ProcessRouter(int argc, char *argv[])
                     mServer->OutputFormat("%02x", routerInfo.mExtAddress.m8[j]);
                 }
 
+                mServer->OutputFormat("| %d ", routerInfo.mLinkEstablished);
+
                 mServer->OutputFormat(" |\r\n");
             }
             else
