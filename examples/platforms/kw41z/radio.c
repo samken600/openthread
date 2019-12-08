@@ -976,7 +976,7 @@ void kw41zRadioInit(void)
     ZLL->SAM_TABLE |= ZLL_SAM_TABLE_INVALIDATE_ALL_MASK;
 
     rf_set_channel(DEFAULT_CHANNEL);
-    rf_set_tx_power(0);
+    ZLL->PA_PWR = 1;
 
     sTxFrame.mLength = 0;
     sTxFrame.mPsdu   = sTxData;
