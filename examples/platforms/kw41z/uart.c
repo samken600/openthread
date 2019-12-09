@@ -84,6 +84,12 @@ otError otPlatUartEnable(void)
     /* Set OSCERCLK as LPUART Rx/Tx clock */
     CLOCK_SetLpuartClock(2);
 
+    /* Ensure data transmit and receive sources for LPUART0 are set properly */
+    SIM->SOPT5 = ((SIM->SOPT5 &
+      (~(SIM_SOPT5_LPUART0RXSRC_MASK)))                        /* Mask bits to zero which are setting */
+        | SIM_SOPT5_LPUART0RXSRC(0x00u) /* LPUART0 Receive Data Source Select: LPUART_RX pin */
+      );
+
     LPUART_GetDefaultConfig(&config);
     config.enableRx     = 1;
     config.enableTx     = 1;

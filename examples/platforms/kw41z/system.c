@@ -55,6 +55,12 @@ void otSysInit(int argc, char *argv[])
     CLOCK_EnableClock(kCLOCK_PortB);
     CLOCK_EnableClock(kCLOCK_PortC);
 
+    /* Enable LEDs */
+
+    PORT_SetPinMux(PORTC, 1u, kPORT_MuxAsGpio); // RED LED
+    PORT_SetPinMux(PORTA, 18u, kPORT_MuxAsGpio); // BLUE LED
+    PORT_SetPinMux(PORTA, 19u, kPORT_MuxAsGpio); // GREEN LED
+
     SIM->SCGC6 |= (SIM_SCGC6_DMAMUX_MASK); /* Enable clock to DMA_MUX (SIM module) */
     SIM->SCGC7 |= (SIM_SCGC7_DMA_MASK);
 
